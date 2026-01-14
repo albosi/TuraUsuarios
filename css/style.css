@@ -1,3 +1,10 @@
+.container {
+  float: left;
+  width: 100%;
+  text-align: center;
+  background: #ffff55a0;
+}
+
 .column {
   float: left;
   width: 50%;
