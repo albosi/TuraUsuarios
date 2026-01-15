@@ -27,6 +27,9 @@
         <li class="nav-item">          
           <p><a href="GHistorico.php">HISTORICO</a></p>
         </li>
+        <li class="nav-item">          
+          <p><a href="Ayuda/Ayuda.html">AYUDA</a></p>
+        </li>
   </ul>   
   </nav>
 <?php

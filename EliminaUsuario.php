@@ -17,13 +17,13 @@
         $historico.=substr($imagen, 9, 20);
         // Comprobación
         //echo "<hr>$id<br>$imagen<hr>";
-        //echo "<hr>$imagen<br>$historico<hr>";
+        //echo "$historico<hr>";
 
         // Seleccionamos la tabla con la que vamos a trabajar
         $tabla="usuarios";// Escribir entre comillas el nombre de la tabla a listar
         
         // Hace una copia del registro a borrar en el HISTÓRICO
-        $transferencia="insert into historico select * from usuarios where login='$id';";
+        $transferencia="INSERT into historico select * from usuarios where login='$id';";
         //echo "<hr><h3>$transferencia</h3><hr>";
         // Ejecuta la sentencia de transferencia
         
@@ -47,7 +47,7 @@
                 echo "<h3>Registro borrado correctamente de la tabla USUARIOS</h3><hr>";
                 // Copia el fichero de la imagen del usuario a la carpeta HISTORICO
                 copy($imagen, $historico);
-                // Elimina el ficher de la imagen
+                // Elimina el fichero de la imagen
                 unlink($imagen);
 
                 // Directamente mueve el fichero con...

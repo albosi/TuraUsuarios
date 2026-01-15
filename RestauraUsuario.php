@@ -15,8 +15,8 @@
         $foto="imagenes/".$id.".";        
         $foto.=substr($imagen, -3);
         // Comprobación
-        echo "<hr>$id<br>$imagen<hr>";
-        echo "Nueva Imagen: $foto<hr>";
+        //echo "<hr>$id<br>$imagen<hr>";
+        //echo "Nueva Imagen: $foto<hr>";
         
         // Hace una copia del registro desde el HISTÓRICO a la tabla USUARIOS
         $transferencia="insert into usuarios select * from historico where login='$id';";
@@ -27,19 +27,20 @@
         {            
             // Elimina el registro de la tabla HISTORICO
             $borrado="DELETE FROM historico where login='$id'";	
-            echo "<hr>$borrado<hr>";
+            //echo "<hr>$borrado<hr>";
 
             // Ejecuta la sentencia de borrado
             if (mysqli_query($c,$borrado))
             {
                 // Hay que renombrar la imagen en la tabla con el id
-                $renombrar="UPDATE usuario SET imagen='$foto' WHERE login='$id' ";
+                $renombrar="UPDATE usuarios SET imagen='$foto' WHERE login='$id' ";
+                //echo "<hr>$renombrar<hr>";
                 // Ejecuta la sentencia de renombrado
                 if (mysqli_query($c,$renombrar))
                 {
                     echo "<h3>Imagen transferida correctamente</h3><hr>";
                 }
-                echo "<h3>Registro borrado correctamente de la tabla USUARIOS</h3><hr>";
+                echo "<h3>Registro restaurado correctamente de la tabla USUARIOS</h3><hr>";
                 // Copia el fichero de la imagen del histórico a la carpeta de imágenes de usuarios
                 copy($imagen, $foto);
                 // Elimina el fichero de la imagen de la carpeta del histórico
